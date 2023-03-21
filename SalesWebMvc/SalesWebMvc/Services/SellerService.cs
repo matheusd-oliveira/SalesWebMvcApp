@@ -49,7 +49,8 @@ namespace SalesWebMvc.Services
             if (!_context.Seller.Any(x => x.Id == obj.Id))
                 throw new NotFoundException("Id not found");
 
-            // Se uma exceção da camada de dados ocorrer, meu programa lança uma exceção a nivel de serviço.
+            // Se uma exceção do nível de acesso a dados ocorrer, meu programa lança uma exceção a nivel de serviço.
+            // Essa prática é muito boa, pois o meu controlador só vai conversar com minha camada de serviço.
             try
             {
                 _context.Update(obj);
